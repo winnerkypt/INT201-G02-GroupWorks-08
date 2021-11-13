@@ -2,58 +2,55 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 :root {
-  --clr-light: white;
-  --clr-dark: black;
-  
-  --foreground: var(--clr-dark);
-  --background: var(--clr-light);
-
+    /* --clr-light: white; */
+    --clr-dark: black;
+    --foreground: var(--clr-dark);
+    --background: var(--clr-light);
 }
 
 .darkmode {
-  --clr-light: white;
-  --clr-dark: black;
-  --foreground: var(--clr-light);
-  --background: var(--clr-dark);
+    /* --clr-light: white; */
+    --clr-dark: #656973;
+    --foreground: var(--clr-light);
+    --background: var(--clr-dark);
 }
 
 body {
-  background: var(--background);
-  font-family: var(--ff-body);
-  font-size: 18px;
-  line-height: 1.6;
-  
+    background: var(--background);
+    font-family: var(--ff-body);
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 .dark-mode-toggle {
-  position: fixed;
-  z-index: 100;
-  top: 1em;
-  right: 1em;
-  color: var(--foreground);
-  background-color: var(--background);
-  border: 2px solid currentColor;
-  padding: 0.1,0.1,0.1,0.1;
-  background: transparent;
-  cursor: pointer;
-  border-radius: 10px;
-  width: 30px;
-  height: 30px;
-
+    position: absolute;
+    z-index: 100;
+    top: -43px;
+    right: 1em;
+    color: var(--foreground);
+    background-color: var(--background);
+    border: 2px solid currentColor;
+    padding: 0.1, 0.1, 0.1, 0.1;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 30px;
+    height: 30px;
 }
 
+
+/* 
 .click-here {
-  color: var(--foreground);
-  width: 100px;
-  right: 1.5em;
-  position: fixed;
-  top: 3em;
-
-}
+    color: var(--foreground);
+    width: 100px;
+    right: 1.5em;
+    position: fixed;
+    top: 4em;
+} */
 
 .bottomright {
     position: absolute;

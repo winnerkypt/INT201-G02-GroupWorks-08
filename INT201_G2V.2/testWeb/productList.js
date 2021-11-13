@@ -75,22 +75,29 @@ function listProduct() {
 let addCart = document.querySelectorAll("#add");
 let cartNumbers = document.querySelector("#cart");
 // let card = document.querySelector(".card-body")
-let amount = 0;
-cartNumbers.innerHTML = `${amount}`;
+
+let quality = 0;
+if (localStorage.length < 1) {
+    localStorage.setItem("amount", 0);
+    cartNumbers.innerHTML = `${localStorage.getItem("amount")}`;
+} else {
+    cartNumbers.innerHTML = `${localStorage.getItem("amount")}`;
+}
+let amount = localStorage.getItem("amount");
+console.log(localStorage.length);
 for (let i = 0; i < addCart.length; i++) {
     let cart = []
-    let quality = 0
     addCart[i].addEventListener("click", () => {
-        if(product[i].productId != cart){
+        if (product[i].productId != cart) {
             cart = product[i].productId
-            localStorage.setItem(product[i].productId,quality  = 1)
-        }else{
-            localStorage.setItem(product[i].productId,quality+=1)
+            localStorage.setItem(product[i].productId, quality = 1)
+        } else {
+            localStorage.setItem(product[i].productId, quality += 1)
         }
         alert(`ADD ${product[i].productName} TO CART ! ! ! `)
-        amount++; //เพิ่มจำนวนสินค้าในตะกร้า
+        localStorage.setItem("amount", ++amount); //เพิ่มจำนวนสินค้าในตะกร้า
         cartNumbers.innerHTML = `${amount}`;
-    }) 
+    })
 }
 
 let clear = document.querySelector("#clear");
