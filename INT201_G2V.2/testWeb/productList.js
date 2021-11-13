@@ -43,7 +43,7 @@ function listProduct() {
 
         let imgShein = document.createElement("div");
         imgShein.innerHTML += `<img class='card-img-top' src='${product[i].productImg}' width="250px">`;
-        // `<img src='${product[i].productImg}' width="250px" style="marginBottom:20px;"><div class="overlayText"><a href ='#' id="Add ${product[i].productId}"class="textImage">Add</a></div>`;
+        // `<img src='${product[i].productImg}' width="250px" style="marginBottom:20px;"><div class="overlayText"><a href ='#' id="${product[i].productId}"class="textImage">Add</a></div>`;
 
         let cardBody = document.createElement("div");
         cardBody.setAttribute("class", "card-body");
@@ -70,16 +70,21 @@ function listProduct() {
     }
 }
 
-
-
 let addCart = document.querySelectorAll("#add");
 let cartNumbers = document.querySelector("#cart");
 // let card = document.querySelector(".card-body")
-let amount = 0;
-cartNumbers.innerHTML = `${amount}`;
+
+let quality = 0;
+if(localStorage.length < 1){
+        localStorage.setItem("amount",0);
+        cartNumbers.innerHTML = `${localStorage.getItem("amount")}`;
+    }else{
+        cartNumbers.innerHTML = `${localStorage.getItem("amount")}`;
+    }
+let amount =  localStorage.getItem("amount");
+console.log(localStorage.length);
 for (let i = 0; i < addCart.length; i++) {
     let cart = []
-    let quality = 0
     addCart[i].addEventListener("click", () => {
         if(product[i].productId != cart){
             cart = product[i].productId
@@ -88,15 +93,20 @@ for (let i = 0; i < addCart.length; i++) {
             localStorage.setItem(product[i].productId,quality+=1)
         }
         alert(`ADD ${product[i].productName} TO CART ! ! ! `)
-        amount++; //เพิ่มจำนวนสินค้าในตะกร้า
+        localStorage.setItem("amount",++amount) ; //เพิ่มจำนวนสินค้าในตะกร้า
         cartNumbers.innerHTML = `${amount}`;
     }) 
 }
 
 let clear = document.querySelector("#clear");
 clear.addEventListener("click", () => {
-    amount = 0;
-    cartNumbers.innerHTML = `${amount}`
+    localStorage.setItem("amount", 0);
+    amount = localStorage.getItem("amount")
+    cartNumbers.innerHTML = `${amount}`;
+    for (let i = 0; i < product.length; i++) {
+        localStorage.removeItem(product[i].productId)
+        
+    }
 })
 
 
