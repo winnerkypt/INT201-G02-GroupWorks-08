@@ -1,0 +1,35 @@
+.gradien img {
+    filter: grayscale(0) blur(0);
+    transition: .3s ease-in-out;
+}
+
+.gradien:hover img {
+    filter: grayscale(30%) blur(3px);
+}
+
+.gradien:hover .overlayText {
+    opacity: 1;
+}
+
+.overlayText {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+}
+
+.textImage {
+    color: #a24f5e;
+    font-size: 30px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-decoration: none;
+}
