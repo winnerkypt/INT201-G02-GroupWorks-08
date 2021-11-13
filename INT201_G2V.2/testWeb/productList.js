@@ -90,8 +90,6 @@ for (let i = 0; i < addCart.length; i++) {
         alert(`ADD ${product[i].productName} TO CART ! ! ! `)
         amount++; //เพิ่มจำนวนสินค้าในตะกร้า
         cartNumbers.innerHTML = `${amount}`;
-        console.log(i)
-        console.log(cart)
     }) 
 }
 
