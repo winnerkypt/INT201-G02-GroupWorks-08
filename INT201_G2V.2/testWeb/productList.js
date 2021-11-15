@@ -75,15 +75,6 @@ let cartNumbers = document.querySelector("#cart");
 // let card = document.querySelector(".card-body")
 
 let quality = 0;
-<<<<<<< HEAD
-if (localStorage.length < 1) {
-    localStorage.setItem("amount", 0);
-    cartNumbers.innerHTML = `${localStorage.getItem("amount")}`;
-} else {
-    cartNumbers.innerHTML = `${localStorage.getItem("amount")}`;
-}
-let amount = localStorage.getItem("amount");
-=======
 if(localStorage.length < 1){
         localStorage.setItem("amount",0);
         cartNumbers.innerHTML = `${localStorage.getItem("amount")}`;
@@ -91,25 +82,20 @@ if(localStorage.length < 1){
         cartNumbers.innerHTML = `${localStorage.getItem("amount")}`;
     }
 let amount =  localStorage.getItem("amount");
->>>>>>> 7a77fe4eeda28b2b18bd8d339a8bd75911bb0d04
 console.log(localStorage.length);
 for (let i = 0; i < addCart.length; i++) {
     let cart = []
     addCart[i].addEventListener("click", () => {
-        if (product[i].productId != cart) {
+        if(product[i].productId != cart){
             cart = product[i].productId
-            localStorage.setItem(product[i].productId, quality = 1)
-        } else {
-            localStorage.setItem(product[i].productId, quality += 1)
+            localStorage.setItem(product[i].productId,quality  = 1)
+        }else{
+            localStorage.setItem(product[i].productId,quality+=1)
         }
         alert(`ADD ${product[i].productName} TO CART ! ! ! `)
-<<<<<<< HEAD
-        localStorage.setItem("amount", ++amount); //เพิ่มจำนวนสินค้าในตะกร้า
-=======
         localStorage.setItem("amount",++amount) ; //เพิ่มจำนวนสินค้าในตะกร้า
->>>>>>> 7a77fe4eeda28b2b18bd8d339a8bd75911bb0d04
         cartNumbers.innerHTML = `${amount}`;
-    })
+    }) 
 }
 
 let clear = document.querySelector("#clear");
@@ -124,7 +110,3 @@ clear.addEventListener("click", () => {
 })
 
 
-
-// addCart.addEventListener("click", () => {
-//   alert("Helloworld");
-// });
